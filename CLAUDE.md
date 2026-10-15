@@ -264,6 +264,18 @@ would otherwise produce empty windows, gaps and spiky zeros on short ranges.
 environment rules, absence of the cluster variable/references, and panel interval rules
 only in this directory. These internal rules do not change the public dashboard exceptions below.
 
+Designer and pdf3 instance annotations use the shared `altinn.instance.start_time` gauge
+(Unix seconds), with `useValueForTime: true` and values multiplied by 1000. Blue deploy dots
+mean the earliest **retained** start per environment/version, looking back 90 days at the
+range end (the current production metrics retention); rollbacks to retained versions have
+only orange new-instance dots. Orange dots include rollout, restart and scale-up without
+inferring their cause. Use instant annotation queries, exact millisecond range bounds,
+and a restart sample lookback of one minute plus the dashboard range to include a sole
+sample exactly at range start. The Instances reporting stat counts distinct process IDs
+with samples in the preceding minute at the range end. Keep missing telemetry as No data;
+it is neither Kubernetes readiness nor a health check. These features require the service
+metric rollout and cannot recover events whose telemetry was never exported or retained.
+
 ## Public dashboards
 
 Shared publicly (no login) from `grafana-public`; [`public/README.md`](public/README.md) has

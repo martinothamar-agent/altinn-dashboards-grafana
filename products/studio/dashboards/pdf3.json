@@ -1,7 +1,7 @@
 {
   "uid": "altinn-studio-pdf3",
   "title": "Altinn Studio — PDF3",
-  "description": "PDF generation in pdf3 (proxy and workers) in the runtime environments. Requests, latency, status codes and the outcome of each generation come from the services' HTTP server metrics, where the worker sets error.type on failed generations; failed and slow requests from traces, which tail sampling always keeps, with example traces and links from the metric panels to the matching traces. The Request URLs row shows what the requested URLs point to, per cluster, which in the runtime clusters is per service owner. Datasource UIDs are pinned, matching the other Altinn Studio dashboards. Rates use increase_pure() over $__rate_interval divided by its length rather than rate(): VictoriaMetrics' rate() takes a new series' first sample as its baseline, so a first error on a route, status or error type would never show.",
+  "description": "PDF generation in pdf3 (proxy and workers) in the runtime environments. Requests, latency, status codes and the outcome of each generation come from the services' HTTP server metrics, where the worker sets error.type on failed generations; failed and slow requests from traces, which tail sampling always keeps, with example traces and links from the metric panels to the matching traces. The Request URLs row shows what the requested URLs point to, per cluster, which in the runtime clusters is per service owner. Datasource UIDs are pinned, matching the other Altinn Studio dashboards. Rates use increase_pure() over $__rate_interval divided by its length rather than rate(): VictoriaMetrics' rate() takes a new series' first sample as its baseline, so a first error on a route, status or error type would never show. Instance markers come from altinn.instance.start_time: blue marks the earliest retained start per environment/version over 90 days, orange marks each process start in range. Rollbacks to a retained version have only new-instance markers. History is limited by metric retention and successfully exported samples. Instances reporting counts processes with a sample in the last minute at the range end; it does not measure readiness. These features need the service metric rollout before they show production data.",
   "tags": [
     "altinn-studio",
     "pdf3"
@@ -49,9 +49,125 @@
     ]
   },
   "annotations": {
-    "list": []
+    "list": [
+      {
+        "name": "Deploys (first start of version)",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "altinn-studio-metrics"
+        },
+        "enable": true,
+        "hide": false,
+        "iconColor": "#5794F2",
+        "filter": {
+          "exclude": false,
+          "ids": [
+            7,
+            8,
+            10,
+            11
+          ]
+        },
+        "target": {
+          "expr": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.start_time\", \"service.name\"=~\"pdf3-(proxy|worker)\", \"deployment.environment.name\"=~\"$env\"}[90d] @ (${__to} / 1000))) >= (${__from} / 1000)) <= (${__to} / 1000)) * 1000",
+          "refId": "Anno",
+          "instant": true,
+          "range": false,
+          "format": "time_series"
+        },
+        "useValueForTime": true,
+        "titleFormat": "Version {{service.version}} first start",
+        "textFormat": "{{deployment.environment.name}}. Earliest retained process start for this version (90d history). Rollbacks to a retained version do not add a deploy dot.",
+        "tagKeys": "deployment.environment.name,service.version"
+      },
+      {
+        "name": "Restarts / new instances",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "altinn-studio-metrics"
+        },
+        "enable": true,
+        "hide": false,
+        "iconColor": "#FF9830",
+        "filter": {
+          "exclude": false,
+          "ids": [
+            7,
+            8,
+            10,
+            11
+          ]
+        },
+        "target": {
+          "expr": "((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.start_time\", \"service.name\"=~\"pdf3-(proxy|worker)\", \"deployment.environment.name\"=~\"$env\"}[1m${__range_ms}ms] @ (${__to} / 1000))) >= (${__from} / 1000)) <= (${__to} / 1000)) * 1000",
+          "refId": "Anno",
+          "instant": true,
+          "range": false,
+          "format": "time_series"
+        },
+        "useValueForTime": true,
+        "titleFormat": "{{service.name}} instance started",
+        "textFormat": "{{deployment.environment.name}} · {{service.version}} · {{service.instance.id}} · pod {{k8s.pod.uid}}. Includes rollout, restart and scale-up; telemetry cannot distinguish their cause.",
+        "tagKeys": "deployment.environment.name,service.version"
+      }
+    ]
   },
   "panels": [
+    {
+      "id": 19,
+      "type": "stat",
+      "title": "Instances reporting",
+      "description": "Processes with at least one instance start-time sample in the preceding minute, evaluated at the dashboard range end. Counts processes exporting telemetry, not Kubernetes readiness or health. Replaced processes remain for up to one minute; missing telemetry stays No data. Requires the instance metric service rollout.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "altinn-studio-metrics"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 3
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "altinn-studio-metrics"
+          },
+          "refId": "A",
+          "expr": "count by (\"deployment.environment.name\", \"service.name\") (group by (\"deployment.environment.name\", \"service.name\", \"service.instance.id\") (present_over_time({\"altinn.instance.start_time\", \"service.name\"=~\"pdf3-(proxy|worker)\", \"deployment.environment.name\"=~\"$env\"}[1m])))",
+          "legendFormat": "{{deployment.environment.name}} · {{service.name}}",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "min": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "value_and_name",
+        "wideLayout": false,
+        "text": {
+          "titleSize": 14,
+          "valueSize": 32
+        }
+      }
+    },
     {
       "id": 1,
       "type": "row",
@@ -59,7 +175,7 @@
       "collapsed": false,
       "gridPos": {
         "x": 0,
-        "y": 0,
+        "y": 3,
         "w": 24,
         "h": 1
       },
@@ -76,7 +192,7 @@
       },
       "gridPos": {
         "x": 0,
-        "y": 1,
+        "y": 4,
         "w": 6,
         "h": 4
       },
@@ -121,7 +237,7 @@
       },
       "gridPos": {
         "x": 6,
-        "y": 1,
+        "y": 4,
         "w": 6,
         "h": 4
       },
@@ -185,7 +301,7 @@
       },
       "gridPos": {
         "x": 12,
-        "y": 1,
+        "y": 4,
         "w": 6,
         "h": 4
       },
@@ -230,7 +346,7 @@
       },
       "gridPos": {
         "x": 18,
-        "y": 1,
+        "y": 4,
         "w": 6,
         "h": 4
       },
@@ -271,7 +387,7 @@
       "collapsed": false,
       "gridPos": {
         "x": 0,
-        "y": 5,
+        "y": 8,
         "w": 24,
         "h": 1
       },
@@ -288,7 +404,7 @@
       },
       "gridPos": {
         "x": 0,
-        "y": 6,
+        "y": 9,
         "w": 12,
         "h": 8
       },
@@ -328,7 +444,7 @@
       },
       "gridPos": {
         "x": 12,
-        "y": 6,
+        "y": 9,
         "w": 12,
         "h": 8
       },
@@ -382,7 +498,7 @@
       "collapsed": false,
       "gridPos": {
         "x": 0,
-        "y": 14,
+        "y": 17,
         "w": 24,
         "h": 1
       },
@@ -399,7 +515,7 @@
       },
       "gridPos": {
         "x": 0,
-        "y": 15,
+        "y": 18,
         "w": 12,
         "h": 9
       },
@@ -504,7 +620,7 @@
       },
       "gridPos": {
         "x": 12,
-        "y": 15,
+        "y": 18,
         "w": 12,
         "h": 9
       },
@@ -624,7 +740,7 @@
       "collapsed": false,
       "gridPos": {
         "x": 0,
-        "y": 24,
+        "y": 27,
         "w": 24,
         "h": 1
       },
@@ -641,7 +757,7 @@
       },
       "gridPos": {
         "x": 0,
-        "y": 25,
+        "y": 28,
         "w": 12,
         "h": 8
       },
@@ -783,7 +899,7 @@
       },
       "gridPos": {
         "x": 12,
-        "y": 25,
+        "y": 28,
         "w": 12,
         "h": 8
       },
@@ -815,7 +931,7 @@
       "collapsed": true,
       "gridPos": {
         "x": 0,
-        "y": 33,
+        "y": 36,
         "w": 24,
         "h": 1
       },
@@ -831,7 +947,7 @@
           },
           "gridPos": {
             "x": 0,
-            "y": 34,
+            "y": 37,
             "w": 12,
             "h": 8
           },
@@ -875,7 +991,7 @@
           },
           "gridPos": {
             "x": 12,
-            "y": 34,
+            "y": 37,
             "w": 12,
             "h": 8
           },
@@ -919,7 +1035,7 @@
           },
           "gridPos": {
             "x": 0,
-            "y": 42,
+            "y": 45,
             "w": 24,
             "h": 8
           },
