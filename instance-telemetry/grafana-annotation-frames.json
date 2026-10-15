@@ -1,0 +1,2920 @@
+{
+  "deploy_instant": {
+    "request": {
+      "from": "1792098595000",
+      "to": "1792099195000",
+      "queries": [
+        {
+          "refId": "Anno",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "altinn-studio-metrics"
+          },
+          "expr": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[90d] @ 1792099195)) >= 1792098595) <= 1792099195) * 1000",
+          "instant": true,
+          "range": false,
+          "format": "time_series",
+          "intervalMs": 15000,
+          "maxDataPoints": 1456
+        }
+      ]
+    },
+    "response": {
+      "results": {
+        "Anno": {
+          "status": 200,
+          "frames": [
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "calculatedMinStep": 15000,
+                    "resultType": "vector"
+                  },
+                  "executedQueryString": "Expr: ((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[90d] @ 1792099195)) >= 1792098595) <= 1792099195) * 1000\nStep: 15s"
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "service.version": "boundary-end"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", service.version=\"boundary-end\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792099195000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "service.version": "boundary-start"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", service.version=\"boundary-start\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098595000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "service.version": "boundary-start-only"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", service.version=\"boundary-start-only\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098595000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "service.version": "gapped"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", service.version=\"gapped\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098775000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "service.version": "new"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", service.version=\"new\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098685000
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "deploy_range": {
+    "request": {
+      "from": "1792098595000",
+      "to": "1792099195000",
+      "queries": [
+        {
+          "refId": "Anno",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "altinn-studio-metrics"
+          },
+          "expr": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[90d] @ 1792099195)) >= 1792098595) <= 1792099195) * 1000",
+          "instant": false,
+          "range": true,
+          "format": "time_series",
+          "intervalMs": 15000,
+          "maxDataPoints": 1456
+        }
+      ]
+    },
+    "response": {
+      "results": {
+        "Anno": {
+          "status": 200,
+          "frames": [
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "calculatedMinStep": 15000,
+                    "resultType": "matrix"
+                  },
+                  "executedQueryString": "Expr: ((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[90d] @ 1792099195)) >= 1792098595) <= 1792099195) * 1000\nStep: 15s"
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "service.version": "boundary-end"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", service.version=\"boundary-end\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "service.version": "boundary-start"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", service.version=\"boundary-start\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "service.version": "boundary-start-only"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", service.version=\"boundary-start-only\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "service.version": "gapped"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", service.version=\"gapped\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "service.version": "new"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", service.version=\"new\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "restart_instant": {
+    "request": {
+      "from": "1792098595000",
+      "to": "1792099195000",
+      "queries": [
+        {
+          "refId": "Anno",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "altinn-studio-metrics"
+          },
+          "expr": "((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m600000ms] @ (1792099195000 / 1000))) >= 1792098595) <= 1792099195) * 1000",
+          "instant": true,
+          "range": false,
+          "format": "time_series",
+          "intervalMs": 15000,
+          "maxDataPoints": 1456
+        }
+      ]
+    },
+    "response": {
+      "results": {
+        "Anno": {
+          "status": 200,
+          "frames": [
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "calculatedMinStep": 15000,
+                    "resultType": "vector"
+                  },
+                  "executedQueryString": "Expr: ((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m600000ms] @ (1792099195000 / 1000))) >= 1792098595) <= 1792099195) * 1000\nStep: 15s"
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-boundary-end",
+                      "service.instance.id": "boundary-end",
+                      "service.name": "fixture-proxy",
+                      "service.version": "boundary-end"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-boundary-end\", service.instance.id=\"boundary-end\", service.name=\"fixture-proxy\", service.version=\"boundary-end\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792099195000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-boundary-start",
+                      "service.instance.id": "boundary-start",
+                      "service.name": "fixture-proxy",
+                      "service.version": "boundary-start"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-boundary-start\", service.instance.id=\"boundary-start\", service.name=\"fixture-proxy\", service.version=\"boundary-start\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098595000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-boundary-start-only",
+                      "service.instance.id": "boundary-start-only",
+                      "service.name": "fixture-proxy",
+                      "service.version": "boundary-start-only"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-boundary-start-only\", service.instance.id=\"boundary-start-only\", service.name=\"fixture-proxy\", service.version=\"boundary-start-only\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098595000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-gapped-first",
+                      "service.instance.id": "gapped-first",
+                      "service.name": "fixture-proxy",
+                      "service.version": "gapped"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-gapped-first\", service.instance.id=\"gapped-first\", service.name=\"fixture-proxy\", service.version=\"gapped\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098775000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-new-scaleup",
+                      "service.instance.id": "new-scaleup",
+                      "service.name": "fixture-proxy",
+                      "service.version": "new"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-new-scaleup\", service.instance.id=\"new-scaleup\", service.name=\"fixture-proxy\", service.version=\"new\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098955000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-old-rollback",
+                      "service.instance.id": "old-rollback",
+                      "service.name": "fixture-proxy",
+                      "service.version": "old"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-old-rollback\", service.instance.id=\"old-rollback\", service.name=\"fixture-proxy\", service.version=\"old\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792099015000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-old-scaleup",
+                      "service.instance.id": "old-scaleup",
+                      "service.name": "fixture-proxy",
+                      "service.version": "old"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-old-scaleup\", service.instance.id=\"old-scaleup\", service.name=\"fixture-proxy\", service.version=\"old\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098655000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-worker-new",
+                      "service.instance.id": "worker-new",
+                      "service.name": "fixture-worker",
+                      "service.version": "new"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-worker-new\", service.instance.id=\"worker-new\", service.name=\"fixture-worker\", service.version=\"new\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098695000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "same-pod-restarted",
+                      "service.instance.id": "new-first",
+                      "service.name": "fixture-proxy",
+                      "service.version": "new"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"same-pod-restarted\", service.instance.id=\"new-first\", service.name=\"fixture-proxy\", service.version=\"new\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098685000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "numeric-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "vector"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "same-pod-restarted",
+                      "service.instance.id": "new-restart",
+                      "service.name": "fixture-proxy",
+                      "service.version": "new"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"same-pod-restarted\", service.instance.id=\"new-restart\", service.name=\"fixture-proxy\", service.version=\"new\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792099195000
+                  ],
+                  [
+                    1792098835000
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "restart_range": {
+    "request": {
+      "from": "1792098595000",
+      "to": "1792099195000",
+      "queries": [
+        {
+          "refId": "Anno",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "altinn-studio-metrics"
+          },
+          "expr": "((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m600000ms] @ (1792099195000 / 1000))) >= 1792098595) <= 1792099195) * 1000",
+          "instant": false,
+          "range": true,
+          "format": "time_series",
+          "intervalMs": 15000,
+          "maxDataPoints": 1456
+        }
+      ]
+    },
+    "response": {
+      "results": {
+        "Anno": {
+          "status": 200,
+          "frames": [
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "calculatedMinStep": 15000,
+                    "resultType": "matrix"
+                  },
+                  "executedQueryString": "Expr: ((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m600000ms] @ (1792099195000 / 1000))) >= 1792098595) <= 1792099195) * 1000\nStep: 15s"
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-boundary-end",
+                      "service.instance.id": "boundary-end",
+                      "service.name": "fixture-proxy",
+                      "service.version": "boundary-end"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-boundary-end\", service.instance.id=\"boundary-end\", service.name=\"fixture-proxy\", service.version=\"boundary-end\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000,
+                    1792099195000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-boundary-start",
+                      "service.instance.id": "boundary-start",
+                      "service.name": "fixture-proxy",
+                      "service.version": "boundary-start"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-boundary-start\", service.instance.id=\"boundary-start\", service.name=\"fixture-proxy\", service.version=\"boundary-start\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-boundary-start-only",
+                      "service.instance.id": "boundary-start-only",
+                      "service.name": "fixture-proxy",
+                      "service.version": "boundary-start-only"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-boundary-start-only\", service.instance.id=\"boundary-start-only\", service.name=\"fixture-proxy\", service.version=\"boundary-start-only\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000,
+                    1792098595000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-gapped-first",
+                      "service.instance.id": "gapped-first",
+                      "service.name": "fixture-proxy",
+                      "service.version": "gapped"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-gapped-first\", service.instance.id=\"gapped-first\", service.name=\"fixture-proxy\", service.version=\"gapped\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000,
+                    1792098775000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-new-scaleup",
+                      "service.instance.id": "new-scaleup",
+                      "service.name": "fixture-proxy",
+                      "service.version": "new"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-new-scaleup\", service.instance.id=\"new-scaleup\", service.name=\"fixture-proxy\", service.version=\"new\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000,
+                    1792098955000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-old-rollback",
+                      "service.instance.id": "old-rollback",
+                      "service.name": "fixture-proxy",
+                      "service.version": "old"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-old-rollback\", service.instance.id=\"old-rollback\", service.name=\"fixture-proxy\", service.version=\"old\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000,
+                    1792099015000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-old-scaleup",
+                      "service.instance.id": "old-scaleup",
+                      "service.name": "fixture-proxy",
+                      "service.version": "old"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-old-scaleup\", service.instance.id=\"old-scaleup\", service.name=\"fixture-proxy\", service.version=\"old\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000,
+                    1792098655000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "pod-worker-new",
+                      "service.instance.id": "worker-new",
+                      "service.name": "fixture-worker",
+                      "service.version": "new"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"pod-worker-new\", service.instance.id=\"worker-new\", service.name=\"fixture-worker\", service.version=\"new\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000,
+                    1792098695000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "same-pod-restarted",
+                      "service.instance.id": "new-first",
+                      "service.name": "fixture-proxy",
+                      "service.version": "new"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"same-pod-restarted\", service.instance.id=\"new-first\", service.name=\"fixture-proxy\", service.version=\"new\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000,
+                    1792098685000
+                  ]
+                ]
+              }
+            },
+            {
+              "schema": {
+                "refId": "Anno",
+                "meta": {
+                  "type": "timeseries-multi",
+                  "typeVersion": [
+                    0,
+                    1
+                  ],
+                  "custom": {
+                    "resultType": "matrix"
+                  }
+                },
+                "fields": [
+                  {
+                    "name": "Time",
+                    "type": "time",
+                    "typeInfo": {
+                      "frame": "time.Time"
+                    },
+                    "config": {
+                      "interval": 15000
+                    }
+                  },
+                  {
+                    "name": "Value",
+                    "type": "number",
+                    "typeInfo": {
+                      "frame": "float64"
+                    },
+                    "labels": {
+                      "deployment.environment.name": "fixture",
+                      "k8s.pod.uid": "same-pod-restarted",
+                      "service.instance.id": "new-restart",
+                      "service.name": "fixture-proxy",
+                      "service.version": "new"
+                    },
+                    "config": {
+                      "displayNameFromDS": "{deployment.environment.name=\"fixture\", k8s.pod.uid=\"same-pod-restarted\", service.instance.id=\"new-restart\", service.name=\"fixture-proxy\", service.version=\"new\"}"
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "values": [
+                  [
+                    1792098585000,
+                    1792098600000,
+                    1792098615000,
+                    1792098630000,
+                    1792098645000,
+                    1792098660000,
+                    1792098675000,
+                    1792098690000,
+                    1792098705000,
+                    1792098720000,
+                    1792098735000,
+                    1792098750000,
+                    1792098765000,
+                    1792098780000,
+                    1792098795000,
+                    1792098810000,
+                    1792098825000,
+                    1792098840000,
+                    1792098855000,
+                    1792098870000,
+                    1792098885000,
+                    1792098900000,
+                    1792098915000,
+                    1792098930000,
+                    1792098945000,
+                    1792098960000,
+                    1792098975000,
+                    1792098990000,
+                    1792099005000,
+                    1792099020000,
+                    1792099035000,
+                    1792099050000,
+                    1792099065000,
+                    1792099080000,
+                    1792099095000,
+                    1792099110000,
+                    1792099125000,
+                    1792099140000,
+                    1792099155000,
+                    1792099170000,
+                    1792099185000
+                  ],
+                  [
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000,
+                    1792098835000
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

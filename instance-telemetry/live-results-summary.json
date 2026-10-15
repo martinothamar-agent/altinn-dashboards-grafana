@@ -1,0 +1,751 @@
+{
+  "from": 1792099137.77546,
+  "restart_from": 1792099218.194544,
+  "to": 1792099304.8890443,
+  "queries": {
+    "deploy": {
+      "expr": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.start_time\", \"service.name\"=~\"pdf3-(proxy|worker)\", \"deployment.environment.name\"=\"local\"}[90d] @ 1792099304.8890443)) >= 1792099137.77546) <= 1792099304.8890443) * 1000",
+      "result": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "service.version": "instance-v1"
+              },
+              "value": [
+                1792099304.889,
+                "1792099138775.46"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "service.version": "instance-v2"
+              },
+              "value": [
+                1792099304.889,
+                "1792099193496.9133"
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "9",
+          "executionTimeMsec": 0
+        }
+      }
+    },
+    "restart": {
+      "expr": "((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.start_time\", \"service.name\"=~\"pdf3-(proxy|worker)\", \"deployment.environment.name\"=\"local\"}[167.11358428001404s] @ 1792099304.8890443)) >= 1792099137.77546) <= 1792099304.8890443) * 1000",
+      "result": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "k8s.pod.uid": "20ac2b31-3c00-436b-8d55-34eba56cec4d",
+                "service.instance.id": "49194993-cf45-48ca-b0ca-52f194b4fcf2",
+                "service.name": "pdf3-worker",
+                "service.version": "instance-v1"
+              },
+              "value": [
+                1792099304.889,
+                "1792099162698.415"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "k8s.pod.uid": "4348b762-d813-4ee0-a148-9610199f282c",
+                "service.instance.id": "ea3a584d-24ec-40f9-a848-4f79373a392d",
+                "service.name": "pdf3-proxy",
+                "service.version": "instance-v2"
+              },
+              "value": [
+                1792099304.889,
+                "1792099231205.4954"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "k8s.pod.uid": "50a4d0f2-b281-4fc1-bac2-87ecd52484c1",
+                "service.instance.id": "cb80dc87-3158-4da8-aa13-327e72726df3",
+                "service.name": "pdf3-proxy",
+                "service.version": "instance-v2"
+              },
+              "value": [
+                1792099304.889,
+                "1792099222178.8499"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "k8s.pod.uid": "658893d2-3fb4-47f5-a990-98b58bde4c4a",
+                "service.instance.id": "47a68c3f-e6ed-48e7-a8f2-5d1cde29e56a",
+                "service.name": "pdf3-proxy",
+                "service.version": "instance-v1"
+              },
+              "value": [
+                1792099304.889,
+                "1792099146984.0933"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "k8s.pod.uid": "93264613-6878-4719-b4e3-7d070640bfb7",
+                "service.instance.id": "6adea0a6-8f2c-48ec-9d09-dafb9f2a6c26",
+                "service.name": "pdf3-proxy",
+                "service.version": "instance-v2"
+              },
+              "value": [
+                1792099304.889,
+                "1792099193496.9133"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "k8s.pod.uid": "94651cd3-5bad-4cff-9bb5-ed387a627c3b",
+                "service.instance.id": "9190151c-d9fc-4afc-9811-6df2b017aae9",
+                "service.name": "pdf3-proxy",
+                "service.version": "instance-v2"
+              },
+              "value": [
+                1792099304.889,
+                "1792099264522.47"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "k8s.pod.uid": "a5262195-b8ca-489d-a8ab-15aa8b7a4f46",
+                "service.instance.id": "ac321edf-aacd-4017-92da-416b86da7d23",
+                "service.name": "pdf3-proxy",
+                "service.version": "instance-v1"
+              },
+              "value": [
+                1792099304.889,
+                "1792099138775.46"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "k8s.pod.uid": "c22a22f5-3228-47cd-bfd0-25fdf4254d87",
+                "service.instance.id": "129fa25e-50c1-48e0-bfaa-f8aa541122c1",
+                "service.name": "pdf3-proxy",
+                "service.version": "instance-v2"
+              },
+              "value": [
+                1792099304.889,
+                "1792099201086.0269"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "k8s.pod.uid": "d2129293-4032-432e-8065-610aadafab44",
+                "service.instance.id": "02360009-0239-4336-a991-20bfdbda3dc8",
+                "service.name": "pdf3-worker",
+                "service.version": "instance-v1"
+              },
+              "value": [
+                1792099304.889,
+                "1792099156341.4077"
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "9",
+          "executionTimeMsec": 0
+        }
+      }
+    },
+    "instances": {
+      "expr": "count by (\"deployment.environment.name\", \"service.name\") (group by (\"deployment.environment.name\", \"service.name\", \"service.instance.id\") (present_over_time({\"altinn.instance.start_time\", \"service.name\"=~\"pdf3-(proxy|worker)\", \"deployment.environment.name\"=\"local\"}[1m])))",
+      "result": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "service.name": "pdf3-proxy"
+              },
+              "value": [
+                1792099304.889,
+                "3"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "local",
+                "service.name": "pdf3-worker"
+              },
+              "value": [
+                1792099304.889,
+                "2"
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "9",
+          "executionTimeMsec": 0
+        }
+      }
+    },
+    "no_deploy_after_range_start": {
+      "expr": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.start_time\", \"service.name\"=~\"pdf3-(proxy|worker)\", \"deployment.environment.name\"=\"local\"}[90d] @ 1792099304.8890443)) >= 1792099218.194544) <= 1792099304.8890443) * 1000",
+      "result": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": []
+        },
+        "stats": {
+          "seriesFetched": "9",
+          "executionTimeMsec": 0
+        }
+      }
+    }
+  },
+  "assertions": {
+    "deploy": "2 exact version dots across both components (v1 and v2)",
+    "restart": "9 unique process dots",
+    "range_start": "no deploy dots after the first v2 pods have gone, despite their v2 replacements starting inside range",
+    "instances": "3 proxy + 2 worker; no traffic required"
+  },
+  "v1": {
+    "time": 1792099189.5153677,
+    "metric": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-5fdb95ccf-26jfx",
+              "k8s.pod.uid": "658893d2-3fb4-47f5-a990-98b58bde4c4a",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "47a68c3f-e6ed-48e7-a8f2-5d1cde29e56a",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099189,
+              "1792099146.9840932"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-5fdb95ccf-8kw7s",
+              "k8s.pod.uid": "a5262195-b8ca-489d-a8ab-15aa8b7a4f46",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "ac321edf-aacd-4017-92da-416b86da7d23",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099189,
+              "1792099138.77546"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-worker",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-worker-856768d659-8rhrm",
+              "k8s.pod.uid": "20ac2b31-3c00-436b-8d55-34eba56cec4d",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "49194993-cf45-48ca-b0ca-52f194b4fcf2",
+              "service.name": "pdf3-worker",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099189,
+              "1792099162.698415"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-worker",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-worker-856768d659-qbfmf",
+              "k8s.pod.uid": "d2129293-4032-432e-8065-610aadafab44",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "02360009-0239-4336-a991-20bfdbda3dc8",
+              "service.name": "pdf3-worker",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099189,
+              "1792099156.3414078"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "4",
+        "executionTimeMsec": 0
+      }
+    }
+  },
+  "v2": {
+    "time": 1792099218.1589015,
+    "metric": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-5b5d98f74b-qm7pk",
+              "k8s.pod.uid": "93264613-6878-4719-b4e3-7d070640bfb7",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "6adea0a6-8f2c-48ec-9d09-dafb9f2a6c26",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v2"
+            },
+            "value": [
+              1792099218,
+              "1792099193.4969134"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-5fdb95ccf-26jfx",
+              "k8s.pod.uid": "658893d2-3fb4-47f5-a990-98b58bde4c4a",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "47a68c3f-e6ed-48e7-a8f2-5d1cde29e56a",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099218,
+              "1792099146.9840932"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-5fdb95ccf-8kw7s",
+              "k8s.pod.uid": "a5262195-b8ca-489d-a8ab-15aa8b7a4f46",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "ac321edf-aacd-4017-92da-416b86da7d23",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099218,
+              "1792099138.77546"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-worker",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-worker-856768d659-8rhrm",
+              "k8s.pod.uid": "20ac2b31-3c00-436b-8d55-34eba56cec4d",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "49194993-cf45-48ca-b0ca-52f194b4fcf2",
+              "service.name": "pdf3-worker",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099218,
+              "1792099162.698415"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-worker",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-worker-856768d659-qbfmf",
+              "k8s.pod.uid": "d2129293-4032-432e-8065-610aadafab44",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "02360009-0239-4336-a991-20bfdbda3dc8",
+              "service.name": "pdf3-worker",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099218,
+              "1792099156.3414078"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "5",
+        "executionTimeMsec": 0
+      }
+    }
+  },
+  "restart": {
+    "time": 1792099260.1891441,
+    "metric": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-5b5d98f74b-5nsrz",
+              "k8s.pod.uid": "c22a22f5-3228-47cd-bfd0-25fdf4254d87",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "129fa25e-50c1-48e0-bfaa-f8aa541122c1",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v2"
+            },
+            "value": [
+              1792099260,
+              "1792099201.086027"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-5b5d98f74b-qm7pk",
+              "k8s.pod.uid": "93264613-6878-4719-b4e3-7d070640bfb7",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "6adea0a6-8f2c-48ec-9d09-dafb9f2a6c26",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v2"
+            },
+            "value": [
+              1792099260,
+              "1792099193.4969134"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-5fdb95ccf-26jfx",
+              "k8s.pod.uid": "658893d2-3fb4-47f5-a990-98b58bde4c4a",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "47a68c3f-e6ed-48e7-a8f2-5d1cde29e56a",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099260,
+              "1792099146.9840932"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-5fdb95ccf-8kw7s",
+              "k8s.pod.uid": "a5262195-b8ca-489d-a8ab-15aa8b7a4f46",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "ac321edf-aacd-4017-92da-416b86da7d23",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099260,
+              "1792099138.77546"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-99ddc5874-cldsk",
+              "k8s.pod.uid": "4348b762-d813-4ee0-a148-9610199f282c",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "ea3a584d-24ec-40f9-a848-4f79373a392d",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v2"
+            },
+            "value": [
+              1792099260,
+              "1792099231.2054954"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-99ddc5874-zmxsp",
+              "k8s.pod.uid": "50a4d0f2-b281-4fc1-bac2-87ecd52484c1",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "cb80dc87-3158-4da8-aa13-327e72726df3",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v2"
+            },
+            "value": [
+              1792099260,
+              "1792099222.17885"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-worker",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-worker-856768d659-8rhrm",
+              "k8s.pod.uid": "20ac2b31-3c00-436b-8d55-34eba56cec4d",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "49194993-cf45-48ca-b0ca-52f194b4fcf2",
+              "service.name": "pdf3-worker",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099260,
+              "1792099162.698415"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-worker",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-worker-856768d659-qbfmf",
+              "k8s.pod.uid": "d2129293-4032-432e-8065-610aadafab44",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "02360009-0239-4336-a991-20bfdbda3dc8",
+              "service.name": "pdf3-worker",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099260,
+              "1792099156.3414078"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "8",
+        "executionTimeMsec": 0
+      }
+    }
+  },
+  "scale": {
+    "time": 1792099304.8503795,
+    "metric": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-99ddc5874-5rpsg",
+              "k8s.pod.uid": "94651cd3-5bad-4cff-9bb5-ed387a627c3b",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "9190151c-d9fc-4afc-9811-6df2b017aae9",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v2"
+            },
+            "value": [
+              1792099304,
+              "1792099264.52247"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-99ddc5874-cldsk",
+              "k8s.pod.uid": "4348b762-d813-4ee0-a148-9610199f282c",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "ea3a584d-24ec-40f9-a848-4f79373a392d",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v2"
+            },
+            "value": [
+              1792099304,
+              "1792099231.2054954"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-proxy",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-proxy-99ddc5874-zmxsp",
+              "k8s.pod.uid": "50a4d0f2-b281-4fc1-bac2-87ecd52484c1",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "cb80dc87-3158-4da8-aa13-327e72726df3",
+              "service.name": "pdf3-proxy",
+              "service.version": "instance-v2"
+            },
+            "value": [
+              1792099304,
+              "1792099222.17885"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-worker",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-worker-856768d659-8rhrm",
+              "k8s.pod.uid": "20ac2b31-3c00-436b-8d55-34eba56cec4d",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "49194993-cf45-48ca-b0ca-52f194b4fcf2",
+              "service.name": "pdf3-worker",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099304,
+              "1792099162.698415"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "altinn.instance.start_time",
+              "deployment.environment.name": "local",
+              "k8s.cluster.name": "kind-local",
+              "k8s.deployment.name": "pdf3-worker",
+              "k8s.namespace.name": "runtime-pdf3",
+              "k8s.node.name": "runtime-fixture-kind-minimal-worker",
+              "k8s.pod.name": "pdf3-worker-856768d659-qbfmf",
+              "k8s.pod.uid": "d2129293-4032-432e-8065-610aadafab44",
+              "scope.name": "unknown",
+              "scope.version": "unknown",
+              "service.instance.id": "02360009-0239-4336-a991-20bfdbda3dc8",
+              "service.name": "pdf3-worker",
+              "service.version": "instance-v1"
+            },
+            "value": [
+              1792099304,
+              "1792099156.3414078"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "9",
+        "executionTimeMsec": 0
+      }
+    }
+  }
+}

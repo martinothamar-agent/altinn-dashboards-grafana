@@ -1,0 +1,1541 @@
+{
+  "start": 1792098595,
+  "end": 1792099195,
+  "run": "1792099195",
+  "instances": [
+    {
+      "version": "old",
+      "instance": "old-first",
+      "service": "fixture-proxy",
+      "start": 1792098295,
+      "first": 1792098295,
+      "last": 1792098535,
+      "duplicate": false
+    },
+    {
+      "version": "old",
+      "instance": "old-scaleup",
+      "service": "fixture-proxy",
+      "start": 1792098655,
+      "first": 1792098655,
+      "last": 1792099180,
+      "duplicate": false
+    },
+    {
+      "version": "old",
+      "instance": "old-rollback",
+      "service": "fixture-proxy",
+      "start": 1792099015,
+      "first": 1792099015,
+      "last": 1792099180,
+      "duplicate": false
+    },
+    {
+      "version": "new",
+      "instance": "new-first",
+      "service": "fixture-proxy",
+      "start": 1792098685,
+      "first": 1792098685,
+      "last": 1792098805,
+      "duplicate": false
+    },
+    {
+      "version": "new",
+      "instance": "new-restart",
+      "service": "fixture-proxy",
+      "start": 1792098835,
+      "first": 1792098835,
+      "last": 1792099180,
+      "duplicate": true
+    },
+    {
+      "version": "new",
+      "instance": "new-scaleup",
+      "service": "fixture-proxy",
+      "start": 1792098955,
+      "first": 1792098955,
+      "last": 1792099180,
+      "duplicate": false
+    },
+    {
+      "version": "new",
+      "instance": "worker-new",
+      "service": "fixture-worker",
+      "start": 1792098695,
+      "first": 1792098695,
+      "last": 1792099180,
+      "duplicate": false
+    },
+    {
+      "version": "gapped",
+      "instance": "gapped-first",
+      "service": "fixture-proxy",
+      "start": 1792098775,
+      "first": 1792098775,
+      "last": 1792099180,
+      "duplicate": false
+    },
+    {
+      "version": "boundary-before",
+      "instance": "boundary-before",
+      "service": "fixture-proxy",
+      "start": 1792098594.999,
+      "first": 1792098595,
+      "last": 1792099180,
+      "duplicate": false
+    },
+    {
+      "version": "boundary-start",
+      "instance": "boundary-start",
+      "service": "fixture-proxy",
+      "start": 1792098595,
+      "first": 1792098595,
+      "last": 1792099180,
+      "duplicate": false
+    },
+    {
+      "version": "boundary-start-only",
+      "instance": "boundary-start-only",
+      "service": "fixture-proxy",
+      "start": 1792098595,
+      "first": 1792098595,
+      "last": 1792098595,
+      "duplicate": false
+    },
+    {
+      "version": "boundary-end",
+      "instance": "boundary-end",
+      "service": "fixture-proxy",
+      "start": 1792099195,
+      "first": 1792099195,
+      "last": 1792099195,
+      "duplicate": false
+    },
+    {
+      "version": "boundary-after",
+      "instance": "boundary-after",
+      "service": "fixture-proxy",
+      "start": 1792099196,
+      "first": 1792099196,
+      "last": 1792099196,
+      "duplicate": false
+    }
+  ],
+  "queries": {
+    "deploy": {
+      "query": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[90d] @ 1792099195)) >= 1792098595) <= 1792099195) * 1000",
+      "request": {
+        "query": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[90d] @ 1792099195)) >= 1792098595) <= 1792099195) * 1000",
+        "time": 1792099195,
+        "step": "15s",
+        "nocache": 1
+      },
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "boundary-end"
+              },
+              "value": [
+                1792099195,
+                "1792099195000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "boundary-start"
+              },
+              "value": [
+                1792099195,
+                "1792098595000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "boundary-start-only"
+              },
+              "value": [
+                1792099195,
+                "1792098595000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "gapped"
+              },
+              "value": [
+                1792099195,
+                "1792098775000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "new"
+              },
+              "value": [
+                1792099195,
+                "1792098685000"
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "13",
+          "executionTimeMsec": 0
+        }
+      }
+    },
+    "deploy_range": {
+      "query": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[90d] @ 1792099195)) >= 1792098595) <= 1792099195) * 1000",
+      "request": {
+        "query": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[90d] @ 1792099195)) >= 1792098595) <= 1792099195) * 1000",
+        "start": 1792098595,
+        "end": 1792099195,
+        "step": "60s",
+        "nocache": 1
+      },
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "matrix",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "boundary-end"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792099195000"
+                ],
+                [
+                  1792098655,
+                  "1792099195000"
+                ],
+                [
+                  1792098715,
+                  "1792099195000"
+                ],
+                [
+                  1792098775,
+                  "1792099195000"
+                ],
+                [
+                  1792098835,
+                  "1792099195000"
+                ],
+                [
+                  1792098895,
+                  "1792099195000"
+                ],
+                [
+                  1792098955,
+                  "1792099195000"
+                ],
+                [
+                  1792099015,
+                  "1792099195000"
+                ],
+                [
+                  1792099075,
+                  "1792099195000"
+                ],
+                [
+                  1792099135,
+                  "1792099195000"
+                ],
+                [
+                  1792099195,
+                  "1792099195000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "boundary-start"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098595000"
+                ],
+                [
+                  1792098655,
+                  "1792098595000"
+                ],
+                [
+                  1792098715,
+                  "1792098595000"
+                ],
+                [
+                  1792098775,
+                  "1792098595000"
+                ],
+                [
+                  1792098835,
+                  "1792098595000"
+                ],
+                [
+                  1792098895,
+                  "1792098595000"
+                ],
+                [
+                  1792098955,
+                  "1792098595000"
+                ],
+                [
+                  1792099015,
+                  "1792098595000"
+                ],
+                [
+                  1792099075,
+                  "1792098595000"
+                ],
+                [
+                  1792099135,
+                  "1792098595000"
+                ],
+                [
+                  1792099195,
+                  "1792098595000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "boundary-start-only"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098595000"
+                ],
+                [
+                  1792098655,
+                  "1792098595000"
+                ],
+                [
+                  1792098715,
+                  "1792098595000"
+                ],
+                [
+                  1792098775,
+                  "1792098595000"
+                ],
+                [
+                  1792098835,
+                  "1792098595000"
+                ],
+                [
+                  1792098895,
+                  "1792098595000"
+                ],
+                [
+                  1792098955,
+                  "1792098595000"
+                ],
+                [
+                  1792099015,
+                  "1792098595000"
+                ],
+                [
+                  1792099075,
+                  "1792098595000"
+                ],
+                [
+                  1792099135,
+                  "1792098595000"
+                ],
+                [
+                  1792099195,
+                  "1792098595000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "gapped"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098775000"
+                ],
+                [
+                  1792098655,
+                  "1792098775000"
+                ],
+                [
+                  1792098715,
+                  "1792098775000"
+                ],
+                [
+                  1792098775,
+                  "1792098775000"
+                ],
+                [
+                  1792098835,
+                  "1792098775000"
+                ],
+                [
+                  1792098895,
+                  "1792098775000"
+                ],
+                [
+                  1792098955,
+                  "1792098775000"
+                ],
+                [
+                  1792099015,
+                  "1792098775000"
+                ],
+                [
+                  1792099075,
+                  "1792098775000"
+                ],
+                [
+                  1792099135,
+                  "1792098775000"
+                ],
+                [
+                  1792099195,
+                  "1792098775000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "new"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098685000"
+                ],
+                [
+                  1792098655,
+                  "1792098685000"
+                ],
+                [
+                  1792098715,
+                  "1792098685000"
+                ],
+                [
+                  1792098775,
+                  "1792098685000"
+                ],
+                [
+                  1792098835,
+                  "1792098685000"
+                ],
+                [
+                  1792098895,
+                  "1792098685000"
+                ],
+                [
+                  1792098955,
+                  "1792098685000"
+                ],
+                [
+                  1792099015,
+                  "1792098685000"
+                ],
+                [
+                  1792099075,
+                  "1792098685000"
+                ],
+                [
+                  1792099135,
+                  "1792098685000"
+                ],
+                [
+                  1792099195,
+                  "1792098685000"
+                ]
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "13",
+          "executionTimeMsec": 0
+        }
+      }
+    },
+    "restart": {
+      "query": "((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m600000ms] @ (1792099195000 / 1000))) >= 1792098595) <= 1792099195) * 1000",
+      "request": {
+        "query": "((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m600000ms] @ (1792099195000 / 1000))) >= 1792098595) <= 1792099195) * 1000",
+        "time": 1792099195,
+        "step": "15s",
+        "nocache": 1
+      },
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-boundary-end",
+                "service.instance.id": "boundary-end",
+                "service.name": "fixture-proxy",
+                "service.version": "boundary-end"
+              },
+              "value": [
+                1792099195,
+                "1792099195000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-boundary-start",
+                "service.instance.id": "boundary-start",
+                "service.name": "fixture-proxy",
+                "service.version": "boundary-start"
+              },
+              "value": [
+                1792099195,
+                "1792098595000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-boundary-start-only",
+                "service.instance.id": "boundary-start-only",
+                "service.name": "fixture-proxy",
+                "service.version": "boundary-start-only"
+              },
+              "value": [
+                1792099195,
+                "1792098595000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-gapped-first",
+                "service.instance.id": "gapped-first",
+                "service.name": "fixture-proxy",
+                "service.version": "gapped"
+              },
+              "value": [
+                1792099195,
+                "1792098775000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-new-scaleup",
+                "service.instance.id": "new-scaleup",
+                "service.name": "fixture-proxy",
+                "service.version": "new"
+              },
+              "value": [
+                1792099195,
+                "1792098955000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-old-rollback",
+                "service.instance.id": "old-rollback",
+                "service.name": "fixture-proxy",
+                "service.version": "old"
+              },
+              "value": [
+                1792099195,
+                "1792099015000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-old-scaleup",
+                "service.instance.id": "old-scaleup",
+                "service.name": "fixture-proxy",
+                "service.version": "old"
+              },
+              "value": [
+                1792099195,
+                "1792098655000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-worker-new",
+                "service.instance.id": "worker-new",
+                "service.name": "fixture-worker",
+                "service.version": "new"
+              },
+              "value": [
+                1792099195,
+                "1792098695000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "same-pod-restarted",
+                "service.instance.id": "new-first",
+                "service.name": "fixture-proxy",
+                "service.version": "new"
+              },
+              "value": [
+                1792099195,
+                "1792098685000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "same-pod-restarted",
+                "service.instance.id": "new-restart",
+                "service.name": "fixture-proxy",
+                "service.version": "new"
+              },
+              "value": [
+                1792099195,
+                "1792098835000"
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "13",
+          "executionTimeMsec": 0
+        }
+      }
+    },
+    "restart_range": {
+      "query": "((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m600000ms] @ (1792099195000 / 1000))) >= 1792098595) <= 1792099195) * 1000",
+      "request": {
+        "query": "((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m600000ms] @ (1792099195000 / 1000))) >= 1792098595) <= 1792099195) * 1000",
+        "start": 1792098595,
+        "end": 1792099195,
+        "step": "60s",
+        "nocache": 1
+      },
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "matrix",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-boundary-end",
+                "service.instance.id": "boundary-end",
+                "service.name": "fixture-proxy",
+                "service.version": "boundary-end"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792099195000"
+                ],
+                [
+                  1792098655,
+                  "1792099195000"
+                ],
+                [
+                  1792098715,
+                  "1792099195000"
+                ],
+                [
+                  1792098775,
+                  "1792099195000"
+                ],
+                [
+                  1792098835,
+                  "1792099195000"
+                ],
+                [
+                  1792098895,
+                  "1792099195000"
+                ],
+                [
+                  1792098955,
+                  "1792099195000"
+                ],
+                [
+                  1792099015,
+                  "1792099195000"
+                ],
+                [
+                  1792099075,
+                  "1792099195000"
+                ],
+                [
+                  1792099135,
+                  "1792099195000"
+                ],
+                [
+                  1792099195,
+                  "1792099195000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-boundary-start",
+                "service.instance.id": "boundary-start",
+                "service.name": "fixture-proxy",
+                "service.version": "boundary-start"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098595000"
+                ],
+                [
+                  1792098655,
+                  "1792098595000"
+                ],
+                [
+                  1792098715,
+                  "1792098595000"
+                ],
+                [
+                  1792098775,
+                  "1792098595000"
+                ],
+                [
+                  1792098835,
+                  "1792098595000"
+                ],
+                [
+                  1792098895,
+                  "1792098595000"
+                ],
+                [
+                  1792098955,
+                  "1792098595000"
+                ],
+                [
+                  1792099015,
+                  "1792098595000"
+                ],
+                [
+                  1792099075,
+                  "1792098595000"
+                ],
+                [
+                  1792099135,
+                  "1792098595000"
+                ],
+                [
+                  1792099195,
+                  "1792098595000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-boundary-start-only",
+                "service.instance.id": "boundary-start-only",
+                "service.name": "fixture-proxy",
+                "service.version": "boundary-start-only"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098595000"
+                ],
+                [
+                  1792098655,
+                  "1792098595000"
+                ],
+                [
+                  1792098715,
+                  "1792098595000"
+                ],
+                [
+                  1792098775,
+                  "1792098595000"
+                ],
+                [
+                  1792098835,
+                  "1792098595000"
+                ],
+                [
+                  1792098895,
+                  "1792098595000"
+                ],
+                [
+                  1792098955,
+                  "1792098595000"
+                ],
+                [
+                  1792099015,
+                  "1792098595000"
+                ],
+                [
+                  1792099075,
+                  "1792098595000"
+                ],
+                [
+                  1792099135,
+                  "1792098595000"
+                ],
+                [
+                  1792099195,
+                  "1792098595000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-gapped-first",
+                "service.instance.id": "gapped-first",
+                "service.name": "fixture-proxy",
+                "service.version": "gapped"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098775000"
+                ],
+                [
+                  1792098655,
+                  "1792098775000"
+                ],
+                [
+                  1792098715,
+                  "1792098775000"
+                ],
+                [
+                  1792098775,
+                  "1792098775000"
+                ],
+                [
+                  1792098835,
+                  "1792098775000"
+                ],
+                [
+                  1792098895,
+                  "1792098775000"
+                ],
+                [
+                  1792098955,
+                  "1792098775000"
+                ],
+                [
+                  1792099015,
+                  "1792098775000"
+                ],
+                [
+                  1792099075,
+                  "1792098775000"
+                ],
+                [
+                  1792099135,
+                  "1792098775000"
+                ],
+                [
+                  1792099195,
+                  "1792098775000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-new-scaleup",
+                "service.instance.id": "new-scaleup",
+                "service.name": "fixture-proxy",
+                "service.version": "new"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098955000"
+                ],
+                [
+                  1792098655,
+                  "1792098955000"
+                ],
+                [
+                  1792098715,
+                  "1792098955000"
+                ],
+                [
+                  1792098775,
+                  "1792098955000"
+                ],
+                [
+                  1792098835,
+                  "1792098955000"
+                ],
+                [
+                  1792098895,
+                  "1792098955000"
+                ],
+                [
+                  1792098955,
+                  "1792098955000"
+                ],
+                [
+                  1792099015,
+                  "1792098955000"
+                ],
+                [
+                  1792099075,
+                  "1792098955000"
+                ],
+                [
+                  1792099135,
+                  "1792098955000"
+                ],
+                [
+                  1792099195,
+                  "1792098955000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-old-rollback",
+                "service.instance.id": "old-rollback",
+                "service.name": "fixture-proxy",
+                "service.version": "old"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792099015000"
+                ],
+                [
+                  1792098655,
+                  "1792099015000"
+                ],
+                [
+                  1792098715,
+                  "1792099015000"
+                ],
+                [
+                  1792098775,
+                  "1792099015000"
+                ],
+                [
+                  1792098835,
+                  "1792099015000"
+                ],
+                [
+                  1792098895,
+                  "1792099015000"
+                ],
+                [
+                  1792098955,
+                  "1792099015000"
+                ],
+                [
+                  1792099015,
+                  "1792099015000"
+                ],
+                [
+                  1792099075,
+                  "1792099015000"
+                ],
+                [
+                  1792099135,
+                  "1792099015000"
+                ],
+                [
+                  1792099195,
+                  "1792099015000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-old-scaleup",
+                "service.instance.id": "old-scaleup",
+                "service.name": "fixture-proxy",
+                "service.version": "old"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098655000"
+                ],
+                [
+                  1792098655,
+                  "1792098655000"
+                ],
+                [
+                  1792098715,
+                  "1792098655000"
+                ],
+                [
+                  1792098775,
+                  "1792098655000"
+                ],
+                [
+                  1792098835,
+                  "1792098655000"
+                ],
+                [
+                  1792098895,
+                  "1792098655000"
+                ],
+                [
+                  1792098955,
+                  "1792098655000"
+                ],
+                [
+                  1792099015,
+                  "1792098655000"
+                ],
+                [
+                  1792099075,
+                  "1792098655000"
+                ],
+                [
+                  1792099135,
+                  "1792098655000"
+                ],
+                [
+                  1792099195,
+                  "1792098655000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-worker-new",
+                "service.instance.id": "worker-new",
+                "service.name": "fixture-worker",
+                "service.version": "new"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098695000"
+                ],
+                [
+                  1792098655,
+                  "1792098695000"
+                ],
+                [
+                  1792098715,
+                  "1792098695000"
+                ],
+                [
+                  1792098775,
+                  "1792098695000"
+                ],
+                [
+                  1792098835,
+                  "1792098695000"
+                ],
+                [
+                  1792098895,
+                  "1792098695000"
+                ],
+                [
+                  1792098955,
+                  "1792098695000"
+                ],
+                [
+                  1792099015,
+                  "1792098695000"
+                ],
+                [
+                  1792099075,
+                  "1792098695000"
+                ],
+                [
+                  1792099135,
+                  "1792098695000"
+                ],
+                [
+                  1792099195,
+                  "1792098695000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "same-pod-restarted",
+                "service.instance.id": "new-first",
+                "service.name": "fixture-proxy",
+                "service.version": "new"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098685000"
+                ],
+                [
+                  1792098655,
+                  "1792098685000"
+                ],
+                [
+                  1792098715,
+                  "1792098685000"
+                ],
+                [
+                  1792098775,
+                  "1792098685000"
+                ],
+                [
+                  1792098835,
+                  "1792098685000"
+                ],
+                [
+                  1792098895,
+                  "1792098685000"
+                ],
+                [
+                  1792098955,
+                  "1792098685000"
+                ],
+                [
+                  1792099015,
+                  "1792098685000"
+                ],
+                [
+                  1792099075,
+                  "1792098685000"
+                ],
+                [
+                  1792099135,
+                  "1792098685000"
+                ],
+                [
+                  1792099195,
+                  "1792098685000"
+                ]
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "same-pod-restarted",
+                "service.instance.id": "new-restart",
+                "service.name": "fixture-proxy",
+                "service.version": "new"
+              },
+              "values": [
+                [
+                  1792098595,
+                  "1792098835000"
+                ],
+                [
+                  1792098655,
+                  "1792098835000"
+                ],
+                [
+                  1792098715,
+                  "1792098835000"
+                ],
+                [
+                  1792098775,
+                  "1792098835000"
+                ],
+                [
+                  1792098835,
+                  "1792098835000"
+                ],
+                [
+                  1792098895,
+                  "1792098835000"
+                ],
+                [
+                  1792098955,
+                  "1792098835000"
+                ],
+                [
+                  1792099015,
+                  "1792098835000"
+                ],
+                [
+                  1792099075,
+                  "1792098835000"
+                ],
+                [
+                  1792099135,
+                  "1792098835000"
+                ],
+                [
+                  1792099195,
+                  "1792098835000"
+                ]
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "13",
+          "executionTimeMsec": 0
+        }
+      }
+    },
+    "instances": {
+      "query": "count by (\"deployment.environment.name\", \"service.name\") (group by (\"deployment.environment.name\", \"service.name\", \"service.instance.id\") (present_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m])))",
+      "request": {
+        "query": "count by (\"deployment.environment.name\", \"service.name\") (group by (\"deployment.environment.name\", \"service.name\", \"service.instance.id\") (present_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m])))",
+        "time": 1792099195,
+        "step": "15s",
+        "nocache": 1
+      },
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.name": "fixture-proxy"
+              },
+              "value": [
+                1792099195,
+                "8"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.name": "fixture-worker"
+              },
+              "value": [
+                1792099195,
+                "1"
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "10",
+          "executionTimeMsec": 0
+        }
+      }
+    },
+    "false_deploy_with_range_only": {
+      "query": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[600s] @ 1792099195)) >= 1792098595) <= 1792099195) * 1000",
+      "request": {
+        "query": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[600s] @ 1792099195)) >= 1792098595) <= 1792099195) * 1000",
+        "time": 1792099195,
+        "step": "15s",
+        "nocache": 1
+      },
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "boundary-end"
+              },
+              "value": [
+                1792099195,
+                "1792099195000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "boundary-start"
+              },
+              "value": [
+                1792099195,
+                "1792098595000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "gapped"
+              },
+              "value": [
+                1792099195,
+                "1792098775000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "new"
+              },
+              "value": [
+                1792099195,
+                "1792098685000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "old"
+              },
+              "value": [
+                1792099195,
+                "1792098655000"
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "12",
+          "executionTimeMsec": 0
+        }
+      }
+    },
+    "deploy_fractional_bounds": {
+      "query": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[90d] @ 1792099195)) >= (1792098595001 / 1000)) <= (1792099194999 / 1000)) * 1000",
+      "request": {
+        "query": "((min by (\"deployment.environment.name\", \"service.version\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[90d] @ 1792099195)) >= (1792098595001 / 1000)) <= (1792099194999 / 1000)) * 1000",
+        "time": 1792099195,
+        "step": "15s",
+        "nocache": 1
+      },
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "gapped"
+              },
+              "value": [
+                1792099195,
+                "1792098775000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.version": "new"
+              },
+              "value": [
+                1792099195,
+                "1792098685000"
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "13",
+          "executionTimeMsec": 0
+        }
+      }
+    },
+    "restart_strict_range": {
+      "query": "((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[600000ms] @ (1792099195000 / 1000))) >= (1792098595000 / 1000)) <= (1792099195000 / 1000)) * 1000",
+      "request": {
+        "query": "((min by (\"deployment.environment.name\", \"service.version\", \"service.name\", \"service.instance.id\", \"k8s.pod.uid\") (min_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[600000ms] @ (1792099195000 / 1000))) >= (1792098595000 / 1000)) <= (1792099195000 / 1000)) * 1000",
+        "time": 1792099195,
+        "step": "15s",
+        "nocache": 1
+      },
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-boundary-end",
+                "service.instance.id": "boundary-end",
+                "service.name": "fixture-proxy",
+                "service.version": "boundary-end"
+              },
+              "value": [
+                1792099195,
+                "1792099195000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-boundary-start",
+                "service.instance.id": "boundary-start",
+                "service.name": "fixture-proxy",
+                "service.version": "boundary-start"
+              },
+              "value": [
+                1792099195,
+                "1792098595000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-gapped-first",
+                "service.instance.id": "gapped-first",
+                "service.name": "fixture-proxy",
+                "service.version": "gapped"
+              },
+              "value": [
+                1792099195,
+                "1792098775000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-new-scaleup",
+                "service.instance.id": "new-scaleup",
+                "service.name": "fixture-proxy",
+                "service.version": "new"
+              },
+              "value": [
+                1792099195,
+                "1792098955000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-old-rollback",
+                "service.instance.id": "old-rollback",
+                "service.name": "fixture-proxy",
+                "service.version": "old"
+              },
+              "value": [
+                1792099195,
+                "1792099015000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-old-scaleup",
+                "service.instance.id": "old-scaleup",
+                "service.name": "fixture-proxy",
+                "service.version": "old"
+              },
+              "value": [
+                1792099195,
+                "1792098655000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "pod-worker-new",
+                "service.instance.id": "worker-new",
+                "service.name": "fixture-worker",
+                "service.version": "new"
+              },
+              "value": [
+                1792099195,
+                "1792098695000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "same-pod-restarted",
+                "service.instance.id": "new-first",
+                "service.name": "fixture-proxy",
+                "service.version": "new"
+              },
+              "value": [
+                1792099195,
+                "1792098685000"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "k8s.pod.uid": "same-pod-restarted",
+                "service.instance.id": "new-restart",
+                "service.name": "fixture-proxy",
+                "service.version": "new"
+              },
+              "value": [
+                1792099195,
+                "1792098835000"
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "12",
+          "executionTimeMsec": 0
+        }
+      }
+    },
+    "instances_during_gap": {
+      "query": "count by (\"deployment.environment.name\", \"service.name\") (group by (\"deployment.environment.name\", \"service.name\", \"service.instance.id\") (present_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m])))",
+      "request": {
+        "query": "count by (\"deployment.environment.name\", \"service.name\") (group by (\"deployment.environment.name\", \"service.name\", \"service.instance.id\") (present_over_time({\"altinn.instance.query_fixture\", \"fixture.run\"=\"1792099195\"}[1m])))",
+        "time": 1792098895,
+        "step": "15s",
+        "nocache": 1
+      },
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.name": "fixture-proxy"
+              },
+              "value": [
+                1792098895,
+                "4"
+              ]
+            },
+            {
+              "metric": {
+                "deployment.environment.name": "fixture",
+                "service.name": "fixture-worker"
+              },
+              "value": [
+                1792098895,
+                "1"
+              ]
+            }
+          ]
+        },
+        "stats": {
+          "seriesFetched": "7",
+          "executionTimeMsec": 0
+        }
+      }
+    }
+  },
+  "assertions": {
+    "deploy": "5 exact dots across proxy and worker sharing a version; no old-version scale-up/rollback or pre-range boundary dot",
+    "restart": "10 exact process dots; same-pod restarts distinct by process instance ID; duplicated resource source deduplicated",
+    "instances": "8 proxy + 1 worker unique processes with samples within 1m; proxy falls to 4 during gap and returns to 8",
+    "range": "fixed @ end emits one distinct timestamp per series across all evaluation steps",
+    "bounds": "inclusive from/to; 1ms before and 1s after excluded; fractional-bound expressions filter exact 1ms offsets; extra 1m restart lookback includes sole sample exactly at from"
+  }
+}
