@@ -1,0 +1,101 @@
+{
+  "now": 1792078054,
+  "range_start": 1792077931,
+  "old_started": 1792077754,
+  "new_started": 1792077994,
+  "candidate": {
+    "query": "tfirst_over_time(max by (env,version) (prototype_heartbeat)[123s]) > 1792077931",
+    "result": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "env": "local",
+              "version": "new"
+            },
+            "value": [
+              1792078054,
+              "1792078005"
+            ]
+          },
+          {
+            "metric": {
+              "env": "local",
+              "version": "old"
+            },
+            "value": [
+              1792078054,
+              "1792077945"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "2",
+        "executionTimeMsec": 0
+      }
+    }
+  },
+  "raw_first": {
+    "query": "min by (env,version)(tfirst_over_time(prototype_heartbeat[123s])) > 1792077931",
+    "result": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "env": "local",
+              "version": "new"
+            },
+            "value": [
+              1792078054,
+              "1792077994"
+            ]
+          },
+          {
+            "metric": {
+              "env": "local",
+              "version": "old"
+            },
+            "value": [
+              1792078054,
+              "1792077934"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "2",
+        "executionTimeMsec": 0
+      }
+    }
+  },
+  "with_prior_context": {
+    "query": "min by (env,version)(tfirst_over_time(prototype_heartbeat[423s])) > 1792077931",
+    "result": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "env": "local",
+              "version": "new"
+            },
+            "value": [
+              1792078054,
+              "1792077994"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "2",
+        "executionTimeMsec": 0
+      }
+    }
+  }
+}

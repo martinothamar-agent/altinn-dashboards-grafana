@@ -1,0 +1,180 @@
+{
+  "uid": "pdf3-marker-prototype",
+  "title": "PDF3 deploy marker prototype \u2014 runtime metrics filtered",
+  "description": "Local experiment only. Deploy/restart annotations and instance reporting cannot work: runtime metrics are dropped by the pipeline. HTTP traffic below confirms ingestion works.",
+  "tags": [
+    "altinn-studio",
+    "pdf3"
+  ],
+  "editable": false,
+  "schemaVersion": 42,
+  "refresh": "5m",
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timezone": "browser",
+  "graphTooltip": 1,
+  "templating": {
+    "list": [
+      {
+        "name": "env",
+        "label": "Environment",
+        "type": "query",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "altinn-studio-metrics"
+        },
+        "query": {
+          "qryType": 1,
+          "query": "label_values({\"service.name\"=\"pdf3-proxy\"}, \"deployment.environment.name\")",
+          "refId": "env"
+        },
+        "definition": "label_values({\"service.name\"=\"pdf3-proxy\"}, \"deployment.environment.name\")",
+        "refresh": 2,
+        "includeAll": true,
+        "multi": true,
+        "allValue": ".*",
+        "current": {
+          "text": [
+            "local"
+          ],
+          "value": [
+            "local"
+          ]
+        },
+        "sort": 1
+      }
+    ]
+  },
+  "annotations": {
+    "list": [
+      {
+        "name": "Deploy first seen",
+        "enable": true,
+        "iconColor": "blue",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "altinn-studio-metrics"
+        },
+        "target": {
+          "expr": "(tfirst_over_time(max by (\"deployment.environment.name\",\"service.version\") ({\"go.memory.used\", \"service.name\"=\"pdf3-proxy\", \"deployment.environment.name\"=~\"$env\"})[$__range]) > ${__from:date:seconds}) * 1000",
+          "refId": "Anno",
+          "range": true,
+          "instant": false
+        },
+        "useValueForTime": true,
+        "titleFormat": "Deploy {{service.version}}",
+        "textFormat": "Environment: {{deployment.environment.name}}",
+        "tagKeys": "deployment.environment.name"
+      },
+      {
+        "name": "Pod first seen",
+        "enable": true,
+        "iconColor": "orange",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "altinn-studio-metrics"
+        },
+        "target": {
+          "expr": "(min by (\"deployment.environment.name\",\"k8s.pod.uid\") (tfirst_over_time({\"go.memory.used\", \"service.name\"=\"pdf3-proxy\", \"deployment.environment.name\"=~\"$env\"}[$__range])) > ${__from:date:seconds}) * 1000",
+          "refId": "Anno",
+          "range": true,
+          "instant": false
+        },
+        "useValueForTime": true,
+        "titleFormat": "Pod {{k8s.pod.uid}}",
+        "textFormat": "Environment: {{deployment.environment.name}}",
+        "tagKeys": "deployment.environment.name"
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Proxy responses by status code",
+      "description": "PDF requests per second by the status the proxy returned.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "altinn-studio-metrics"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 12
+      },
+      "targets": [
+        {
+          "expr": "sum by (\"http.response.status_code\") (increase_pure({\"http.server.request.duration_count\", \"service.name\"=\"pdf3-proxy\", \"http.route\"=\"/pdf\", \"deployment.environment.name\"=~\"$env\"}[$__rate_interval]) / ($__rate_interval_ms / 1000))",
+          "legendFormat": "{{http.response.status_code}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "altinn-studio-metrics"
+          },
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "links": [
+            {
+              "title": "Traces with this status",
+              "url": "/explore?schemaVersion=1&orgId=1&panes=%7B%22a%22%3A%7B%22datasource%22%3A%22altinn-studio-traces%22%2C%22queries%22%3A%5B%7B%22refId%22%3A%22A%22%2C%22datasource%22%3A%7B%22type%22%3A%22tempo%22%2C%22uid%22%3A%22altinn-studio-traces%22%7D%2C%22queryType%22%3A%22traceql%22%2C%22tableType%22%3A%22traces%22%2C%22limit%22%3A20%2C%22query%22%3A%22%7Bresource.service.name%3D%5C%22pdf3-proxy%5C%22%20%26%26%20span.http.route%3D%5C%22%2Fpdf%5C%22%20%26%26%20span.http.response.status_code%3D${__field.labels[\"http.response.status_code\"]}%20%26%26%20resource.deployment.environment.name%3D~%5C%22${env:regex}%5C%22%7D%22%7D%5D%2C%22range%22%3A%7B%22from%22%3A%22${__from}%22%2C%22to%22%3A%22${__to}%22%7D%7D%7D"
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 99,
+      "type": "timeseries",
+      "title": "Instances reporting \u2014 blocked: runtime metrics filtered",
+      "description": "No data is the observed failure. This is not a zero live-instance count. The Go runtime SDK emits go.memory.used, but the collector allowlist drops it.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "altinn-studio-metrics"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 12
+      },
+      "targets": [
+        {
+          "expr": "count by (\"deployment.environment.name\") (group by (\"deployment.environment.name\", \"k8s.pod.uid\") (present_over_time({\"go.memory.used\", \"service.name\"=\"pdf3-proxy\", \"deployment.environment.name\"=~\"$env\"}[1m])))",
+          "refId": "A",
+          "legendFormat": "{{deployment.environment.name}}",
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "min": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        }
+      }
+    }
+  ],
+  "timepicker": {
+    "refresh_intervals": [
+      "1m",
+      "5m",
+      "15m",
+      "1h"
+    ]
+  },
+  "links": []
+}

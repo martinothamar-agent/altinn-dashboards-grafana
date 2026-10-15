@@ -1,0 +1,11 @@
+{
+  "error_mode": "ignore",
+  "metrics": {
+    "include": {
+      "match_type": "regexp",
+      "metric_names": [
+        "^(altinn|http|signalr\\.server)([._].*)?$"
+      ]
+    }
+  }
+}

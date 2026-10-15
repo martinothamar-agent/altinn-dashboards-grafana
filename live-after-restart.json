@@ -1,0 +1,78 @@
+{
+  "runtime": {
+    "query": "{\"go.memory.used\", \"service.name\"=\"pdf3-proxy\"}",
+    "result": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": []
+      },
+      "stats": {
+        "seriesFetched": "0",
+        "executionTimeMsec": 0
+      }
+    }
+  },
+  "instances": {
+    "query": "count by (\"deployment.environment.name\") (group by (\"deployment.environment.name\", \"k8s.pod.uid\") (present_over_time({\"go.memory.used\", \"service.name\"=\"pdf3-proxy\"}[1m])))",
+    "result": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": []
+      },
+      "stats": {
+        "seriesFetched": "0",
+        "executionTimeMsec": 0
+      }
+    }
+  },
+  "traffic": {
+    "query": "sum by (\"service.version\", \"k8s.pod.uid\", \"deployment.environment.name\") (last_over_time({\"http.server.request.duration_count\", \"service.name\"=\"pdf3-proxy\"}[10m]))",
+    "result": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "deployment.environment.name": "local",
+              "k8s.pod.uid": "431bb76c-10aa-4066-9b49-f9f879a24322",
+              "service.version": "prototype-v2"
+            },
+            "value": [
+              1792078177,
+              "2"
+            ]
+          },
+          {
+            "metric": {
+              "deployment.environment.name": "local",
+              "k8s.pod.uid": "934bf4ee-2607-417f-9bf5-2235d0955077",
+              "service.version": "prototype-v2"
+            },
+            "value": [
+              1792078177,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "deployment.environment.name": "local",
+              "k8s.pod.uid": "d594c978-56c3-4912-a2e2-150ad2fd4c12",
+              "service.version": "prototype-v1"
+            },
+            "value": [
+              1792078177,
+              "1"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "3",
+        "executionTimeMsec": 0
+      }
+    }
+  }
+}
